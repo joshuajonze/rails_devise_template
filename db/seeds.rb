@@ -8,4 +8,12 @@ if Rails.env.development?
       user.password_confirmation = 'password'
       puts 'Default user created: test@example.com / password'
     end
+    
+    # Create admin user
+    User.find_or_create_by(email: 'admin@example.com') do |user|
+      user.password = 'password'
+      user.password_confirmation = 'password'
+      user.admin = true
+      puts 'Admin user created: admin@example.com / password'
+    end
   end

@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   # Dashboard route for authenticated users
   get 'dashboard' => 'dashboard#index', as: :dashboard
+  
+  # Admin routes
+  namespace :admin do
+    get 'dashboard' => 'dashboard#index', as: :dashboard
+  end
 
   # Defines the root path route ("/")
   root "home#index"

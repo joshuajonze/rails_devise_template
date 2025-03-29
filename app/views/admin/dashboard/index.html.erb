@@ -1,0 +1,49 @@
+<% content_for :title, "Admin Dashboard | Rails Devise Template" %>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="card">
+    <h1 class="text-2xl font-bold mb-6">Admin Dashboard</h1>
+    
+    <div class="mb-6">
+      <h2 class="text-xl font-bold mb-4">User Management</h2>
+      <p class="text-gray-500 mb-4">
+        Welcome to the admin dashboard. Here you can manage all the users in the system.
+      </p>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="text-left p-2">ID</th>
+              <th class="text-left p-2">Email</th>
+              <th class="text-left p-2">Created At</th>
+              <th class="text-left p-2">Admin</th>
+              <th class="text-left p-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr class="border-b">
+                <td class="p-2"><%= user.id %></td>
+                <td class="p-2"><%= user.email %></td>
+                <td class="p-2"><%= user.created_at.strftime("%B %d, %Y") %></td>
+                <td class="p-2"><%= user.admin? ? "Yes" : "No" %></td>
+                <td class="p-2">
+                  <% if policy(user).show? %>
+                    <%= link_to "View", "#", class: "text-blue-600 hover:underline mr-2" %>
+                  <% end %>
+                  <% if policy(user).edit? %>
+                    <%= link_to "Edit", "#", class: "text-green-600 hover:underline mr-2" %>
+                  <% end %>
+                  <% if policy(user).destroy? %>
+                    <%= link_to "Delete", "#", class: "text-red-600 hover:underline" %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
