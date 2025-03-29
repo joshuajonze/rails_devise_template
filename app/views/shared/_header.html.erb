@@ -1,0 +1,28 @@
+<!-- app/views/shared/_header.html.erb -->
+<header class="bg-gray-800 text-white">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="font-bold text-xl">
+      <%= link_to "My App", root_path, class: "hover:text-gray-300" %>
+    </div>
+    
+    <nav>
+      <ul class="flex space-x-4">
+        <% if user_signed_in? %>
+          <li>
+            <%= button_to "Sign Out", destroy_user_session_path, method: :delete, 
+                class: "bg-red-500 hover:bg-red-600 px-3 py-1 rounded" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Sign In", new_user_session_path, 
+                class: "bg-blue-500 hover:bg-blue-600 px-3 py-1 rounded" %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path, 
+                class: "bg-green-500 hover:bg-green-600 px-3 py-1 rounded" %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

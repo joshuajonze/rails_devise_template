@@ -1,0 +1,23 @@
+<!-- app/views/home/index.html.erb -->
+<div class="max-w-2xl mx-auto">
+  <h1 class="text-3xl font-bold mb-6">Welcome to Rails Devise Template</h1>
+  
+  <% if user_signed_in? %>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4">Hello, <%= current_user.email %>!</h2>
+      <p class="mb-4">You are successfully signed in. This content is only visible to authenticated users.</p>
+      <p>Your account was created at: <%= current_user.created_at.strftime("%B %d, %Y") %></p>
+    </div>
+  <% else %>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4">Welcome, Guest!</h2>
+      <p class="mb-4">This is a public page visible to all users.</p>
+      <div class="flex space-x-4 mt-4">
+        <%= link_to "Sign In", new_user_session_path, 
+            class: "bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" %>
+        <%= link_to "Sign Up", new_user_registration_path, 
+            class: "bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded" %>
+      </div>
+    </div>
+  <% end %>
+</div>
