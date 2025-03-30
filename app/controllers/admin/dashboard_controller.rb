@@ -3,8 +3,8 @@ module Admin
       before_action :authenticate_user!
       
       def index
-        authorize :admin_dashboard, :index?
-        @users = policy_scope(User)
+        authorize [:admin, :dashboard], :index?
+        @users = policy_scope([:user_management, User])
       end
     end
   end

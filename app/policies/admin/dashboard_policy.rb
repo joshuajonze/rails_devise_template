@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class AdminDashboardPolicy < ApplicationPolicy
+module Admin
+  class DashboardPolicy < ApplicationPolicy
     class Scope < Scope
       def resolve
         scope.all
@@ -11,3 +12,4 @@ class AdminDashboardPolicy < ApplicationPolicy
       user.present? && user.admin?
     end
   end
+end 

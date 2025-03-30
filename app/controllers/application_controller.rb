@@ -8,6 +8,15 @@ class ApplicationController < ActionController::Base
   # Then include it
   include Pundit::Authorization
   
+  # Configure Pundit to handle namespaced policies
+  def pundit_policy_class
+    if controller_path.start_with?('admin/')
+      "Admin::#{controller_name.classify}Policy".constantize
+    else
+      "#{controller_name.classify}Policy".constantize
+    end
+  end
+  
   # Ensure all controller actions are authorized (except in specific cases like Devise)
   # Uncomment this once you have policies in place for all controllers
   # after_action :verify_authorized, except: :index, unless: :skip_pundit?

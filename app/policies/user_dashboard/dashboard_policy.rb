@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class DashboardPolicy < ApplicationPolicy
+module UserDashboard
+  class DashboardPolicy < ApplicationPolicy
     # The dashboard policy is different because it doesn't have a specific record
     # Instead, we'll check if the user is allowed to access the dashboard at all
     
@@ -15,3 +16,4 @@ class DashboardPolicy < ApplicationPolicy
       user.present?
     end
   end
+end 
