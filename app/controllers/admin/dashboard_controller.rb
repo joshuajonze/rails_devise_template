@@ -4,7 +4,7 @@ module Admin
       
       def index
         authorize [:admin, :dashboard], :index?
-        @users = policy_scope([:user_management, User])
+        @users = policy_scope(User)
       end
     end
   end

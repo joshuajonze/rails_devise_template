@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Dashboard route for authenticated users
-  get 'dashboard' => 'dashboard#index', as: :dashboard
+  # Profile route for authenticated users
+  get 'profile' => 'profiles#index', as: :profile
   
   # Admin routes
   namespace :admin do
