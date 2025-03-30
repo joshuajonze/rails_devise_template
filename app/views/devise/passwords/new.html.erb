@@ -1,19 +1,19 @@
 <% content_for :title, "Forgot Password | Rails Devise Template" %>
 
 <div class="max-w-md mx-auto">
-  <div class="card">
+  <div class="bg-white shadow-md rounded-lg p-6">
     <h2 class="text-xl font-bold mb-6 text-center">Forgot your password?</h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="mb-4">
-        <%= f.label :email, class: "form-label" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
+        <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" %>
       </div>
 
       <div class="mb-4">
-        <%= f.submit "Send me reset password instructions", class: "btn btn-primary w-full" %>
+        <%= f.submit "Send me reset password instructions", class: "w-full bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" %>
       </div>
     <% end %>
 
