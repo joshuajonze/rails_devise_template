@@ -20,6 +20,10 @@ class User < ApplicationRecord
   def name
     email.split('@').first.titleize
   end
+
+  def admin?
+    self.admin
+  end
   
   private
   
